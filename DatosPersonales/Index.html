@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard de Viajes Waze</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .chart-container {
+            width: 90%;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dashboard de Viajes — Datos Waze</h1>
+
+    <!-- KPI 1: Velocidad promedio -->
+    <div class="chart-container">
+        <h2>KPI 1 — Velocidad promedio por viaje (km/h)</h2>
+        <canvas id="velocidadChart"></canvas>
+    </div>
+
+    <!-- KPI 2: Duración por día -->
+    <div class="chart-container">
+        <h2>KPI 2 — Duración del viaje por día (min)</h2>
+        <canvas id="duracionChart"></canvas>
+    </div>
+
+    <!-- KPI 3: Distancia total por semana -->
+    <div class="chart-container">
+        <h2>KPI 3 — Distancia total por semana (km)</h2>
+        <canvas id="distanciaChart"></canvas>
+    </div>
+
+    <script>
+        // ===== EJEMPLO DE DATOS (reemplazalos con tus datos reales) =====
+        const viajes = [
+            { fecha: "2025-11-01", distancia: 12, tiempo: 25 },
+            { fecha: "2025-11-01", distancia: 5, tiempo: 10 },
+            { fecha: "2025-11-02", distancia: 30, tiempo: 40 },
+            { fecha: "2025-11-03", distancia: 18, tiempo: 32 },
+            { fecha: "2025-11-04", distancia: 22, tiempo: 30 },
+        ];
+
+        // KPI 1 — Velocidad promedio por viaje
+        const velocidades = viajes.map(v => (v.distancia / (v.tiempo / 60)).toFixed(2));
+        const labelsViajes = viajes.map((v, i) => "Viaje " + (i + 1));
+
+        new Chart(document.getElementById("velocidadChart"), {
+            type: "line",
+            data: {
+                labels: labelsViajes,
+                datasets: [{
+                    label: "Velocidad promedio (km/h)",
+                    data: velocidades,
+                    borderWidth: 2,
+                    tension: 0.3
+                }]
+            }
+        });
+
+        // KPI 2 — Duración por día
+        const duracionPorDia = {};
+        viajes.forEach(v => {
+            if (!duracionPorDia[v.fecha]) duracionPorDia[v.fecha] = 0;
+            duracionPorDia[v.fecha] += v.tiempo;
+        });
+
+        new Chart(document.getElementById("duracionChart"), {
+            type: "bar",
+            data: {
+                labels: Object.keys(duracionPorDia),
+                datasets: [{
+                    label: "Duración total (min)",
+                    data: Object.values(duracionPorDia),
+                    borderWidth: 1
+                }]
+            }
+        });
+
+        // KPI 3 — Distancia por semana
+        function semana(fecha) {
+            return new Date(fecha).toISOString().slice(0, 10).split("-W")[0];
+        }
+
+        const distanciaSemana = {};
+        viajes.forEach(v => {
+            const semanaKey = "Semana " + new Date(v.fecha).getWeek;
+        });
+
+        // Simplificado: mostramos "Semana fija" como ejemplo
+        new Chart(document.getElementById("distanciaChart"), {
+            type: "bar",
+            data: {
+                labels: ["Semana 44", "Semana 45"],
+                datasets: [{
+                    label: "Distancia total (km)",
+                    data: [40, 47],
+                    borderWidth: 1
+                }]
+            }
+        });
+    </script>
+
+</body>
+</html>
