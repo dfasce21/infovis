@@ -3,117 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard de Viajes Waze</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background: #f6f7f9;
             padding: 20px;
-            background: #f4f4f4;
         }
         h1 {
             text-align: center;
+            margin-bottom: 40px;
         }
-        .chart-container {
-            width: 90%;
-            margin: 40px auto;
+        .card {
             background: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 12px;
+            margin-bottom: 40px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .kpi-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        .kpi-desc {
+            color: #444;
+            margin-bottom: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 480px;
+            border: none;
+            border-radius: 12px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Dashboard de Viajes — Datos Waze</h1>
+    <h1>Dashboard de Viajes · Datos Waze</h1>
 
-    <!-- KPI 1: Velocidad promedio -->
-    <div class="chart-container">
-        <h2>KPI 1 — Velocidad promedio por viaje (km/h)</h2>
-        <canvas id="velocidadChart"></canvas>
+    <!-- KPI 1 -->
+    <div class="card">
+        <div class="kpi-title">KPI 1 — Velocidad promedio por viaje (km/h)</div>
+        <div class="kpi-desc">
+            Mide la velocidad promedio según la distancia recorrida y el tiempo utilizado en cada viaje.
+            Permite identificar días con tránsito más fluido o más lento.
+        </div>
+<div class="flourish-embed flourish-chart" data-src="visualisation/26618489"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26618489/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
     </div>
 
-    <!-- KPI 2: Duración por día -->
-    <div class="chart-container">
-        <h2>KPI 2 — Duración del viaje por día (min)</h2>
-        <canvas id="duracionChart"></canvas>
+    <!-- KPI 2 -->
+    <div class="card">
+        <div class="kpi-title">KPI 2 — Duración total de viajes por día (min)</div>
+        <div class="kpi-desc">
+            Suma todos los minutos manejados por día. Útil para ver qué días tienen mayor intensidad de tráfico.
+        </div>
+
+        <!-- Pegar aquí el iframe de Flourish -->
     </div>
 
-    <!-- KPI 3: Distancia total por semana -->
-    <div class="chart-container">
-        <h2>KPI 3 — Distancia total por semana (km)</h2>
-        <canvas id="distanciaChart"></canvas>
+    <!-- KPI 3 -->
+    <div class="card">
+        <div class="kpi-title">KPI 3 — Distancia total recorrida por semana (km)</div>
+        <div class="kpi-desc">
+            Mide la distancia total acumulada por semana. Ayuda a identificar patrones semanales o cambios en la rutina.
+        </div>
+
+        <!-- Pegar aquí el iframe de Flourish -->
     </div>
-
-    <script>
-        // ===== EJEMPLO DE DATOS (reemplazalos con tus datos reales) =====
-        const viajes = [
-            { fecha: "2025-11-01", distancia: 12, tiempo: 25 },
-            { fecha: "2025-11-01", distancia: 5, tiempo: 10 },
-            { fecha: "2025-11-02", distancia: 30, tiempo: 40 },
-            { fecha: "2025-11-03", distancia: 18, tiempo: 32 },
-            { fecha: "2025-11-04", distancia: 22, tiempo: 30 },
-        ];
-
-        // KPI 1 — Velocidad promedio por viaje
-        const velocidades = viajes.map(v => (v.distancia / (v.tiempo / 60)).toFixed(2));
-        const labelsViajes = viajes.map((v, i) => "Viaje " + (i + 1));
-
-        new Chart(document.getElementById("velocidadChart"), {
-            type: "line",
-            data: {
-                labels: labelsViajes,
-                datasets: [{
-                    label: "Velocidad promedio (km/h)",
-                    data: velocidades,
-                    borderWidth: 2,
-                    tension: 0.3
-                }]
-            }
-        });
-
-        // KPI 2 — Duración por día
-        const duracionPorDia = {};
-        viajes.forEach(v => {
-            if (!duracionPorDia[v.fecha]) duracionPorDia[v.fecha] = 0;
-            duracionPorDia[v.fecha] += v.tiempo;
-        });
-
-        new Chart(document.getElementById("duracionChart"), {
-            type: "bar",
-            data: {
-                labels: Object.keys(duracionPorDia),
-                datasets: [{
-                    label: "Duración total (min)",
-                    data: Object.values(duracionPorDia),
-                    borderWidth: 1
-                }]
-            }
-        });
-
-        // KPI 3 — Distancia por semana
-        function semana(fecha) {
-            return new Date(fecha).toISOString().slice(0, 10).split("-W")[0];
-        }
-
-        const distanciaSemana = {};
-        viajes.forEach(v => {
-            const semanaKey = "Semana " + new Date(v.fecha).getWeek;
-        });
-
-        // Simplificado: mostramos "Semana fija" como ejemplo
-        new Chart(document.getElementById("distanciaChart"), {
-            type: "bar",
-            data: {
-                labels: ["Semana 44", "Semana 45"],
-                datasets: [{
-                    label: "Distancia total (km)",
-                    data: [40, 47],
-                    borderWidth: 1
-                }]
-            }
-        });
-    </script>
 
 </body>
 </html>
