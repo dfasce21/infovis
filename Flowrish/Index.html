@@ -3,80 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preferencias de Pizza</title>
+    <title>Flourish - Visualización</title>
 
     <style>
+        /* --- ESTILO NUEVO: GLASSMORPHISM + NEUTRO ELEGANTE --- */
+
         body {
             margin: 0;
-            padding: 0;
-            font-family: "Inter", Arial, sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: #fff;
+            padding: 40px 20px;
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #e3eef3, #d2d9e5, #c9d7e7);
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
+            color: #2a2a2a;
         }
 
-        .container {
+        .gallery {
             width: 95%;
-            max-width: 900px;
-            background: rgba(255, 255, 255, 0.08);
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.55);
             backdrop-filter: blur(12px);
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.12);
             text-align: center;
         }
 
+        /* --- TÍTULOS --- */
         h1 {
             font-size: 2.4rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        p.subtitle {
-            font-size: 1.1rem;
-            color: #dcdcdc;
-            margin-top: 0;
-            margin-bottom: 30px;
-        }
-
-        .viz {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            background: #ffffff;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h1>Preferencias de Pizza</h1>
-    <p class="subtitle">Comparación entre gustos de hombres y mujeres</p>
-
-    <div class="viz">
-        <iframe title="Qué prefieren hombres y mujeres como agregado para su pizza" aria-label="Range Plot" id="datawrapper-chart-P20gy" src="https://datawrapper.dwcdn.net/P20gy/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="460" data-external="1"></iframe>
-    </div>
-
-    <script type="text/javascript">
-        window.addEventListener("message", function(e) {
-            if (void 0 !== e.data["datawrapper-height"]) {
-                var iframes = document.querySelectorAll("iframe");
-                for (var key in e.data["datawrapper-height"]) {
-                    for (var i = 0, el; el = iframes[i]; i++) {
-                        if (el.contentWindow === e.source) {
-                            el.style.height = e.data["datawrapper-height"][key] + "px";
-                        }
-                    }
-                }
-            }
-        });
-    </script>
-
-</div>
-
-</body>
-</html>
+            margin-bo
