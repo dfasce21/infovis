@@ -3,116 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flourish - Gráficos de Visualización</title>
+    <title>Preferencias de Pizza</title>
+
     <style>
-        /* --- ESTILOS MODERNOS Y OSCUROS (Dashboard Style) --- */
-        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            background-color: #1a1a2e; /* Fondo oscuro (Azul Medianoche) */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start; 
-            min-height: 100vh;
             margin: 0;
-            padding: 20px;
-            color: #333;
+            padding: 0;
+            font-family: "Inter", Arial, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        .gallery {
-            text-align: center;
-            background-color: #ffffff; /* Contenedor Blanco */
+        .container {
+            width: 95%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            max-width: 1000px; /* Ancho ampliado para los gráficos */
-            width: 100%;
-            margin-top: 50px;
-            margin-bottom: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            text-align: center;
         }
 
-        /* --- TÍTULOS --- */
-        
         h1 {
-            color: #3cb371; /* Color Flourish: Verde Esmeralda */
-            margin-bottom: 5px;
-            font-size: 2.2em;
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
-        
-        .subtitle {
-            color: #666;
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: #dcdcdc;
             margin-top: 0;
             margin-bottom: 30px;
-            font-size: 1.1em;
-            font-weight: 400;
         }
 
-        h2 {
-            color: #1a2a47; /* Azul Oscuro para subtítulos */
-            margin-top: 40px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #3cb371; /* Línea separadora con color Flourish */
-            padding-bottom: 5px;
-            font-size: 1.5em;
-        }
-
-        /* --- CONTENIDO DE GRÁFICOS (Wrapper para la incrustación) --- */
-
-        .viz-content {
-            margin-top: 30px;
-            margin-bottom: 30px;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-            border-radius: 6px;
-            overflow: hidden; /* Asegura que el contenido incrustado respete los bordes */
-        }
-        
-        /* Ajuste para el div de Flourish */
-        .flourish-embed {
-            margin: 0;
-        }
-
-        /* --- BOTÓN DE REGRESO (Estilo Dashboard) --- */
-
-        .back-button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 25px;
-            text-decoration: none;
-            color: #ffffff;
-            background-color: #1a2a47; /* Color Azul Oscuro (Neutro) */
-            border-radius: 8px;
-            font-size: 1.1em;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .back-button:hover {
-            background-color: #0d182a;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        .viz {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            background: #ffffff;
         }
     </style>
 </head>
 <body>
-    <div class="gallery">
-        <h1>📊 Proyectos con Flourish: Los Simpson</h1>
-        <p class="subtitle">Análisis de flujo (Sankey Diagram) de datos utilizando la herramienta Flourish.</p>
-        
-        <h2>Diagrama de Sankey: Los Simpson</h2>
-        
-        <div class="viz-content">
-            <div class="flourish-embed flourish-sankey" data-src="visualisation/26616800">
-                <script src="https://public.flourish.studio/resources/embed.js"></script>
-                <noscript>
-                    <img src="https://public.flourish.studio/visualisation/26616800/thumbnail" width="100%" alt="Sankey Diagram Los Simpson" />
-                </noscript>
-            </div>
-        </div>
-        
-        <a href="../index.html" class="back-button">← Volver al Índice Principal</a>
+
+<div class="container">
+    <h1>Preferencias de Pizza</h1>
+    <p class="subtitle">Comparación entre gustos de hombres y mujeres</p>
+
+    <div class="viz">
+        <iframe title="Qué prefieren hombres y mujeres como agregado para su pizza" aria-label="Range Plot" id="datawrapper-chart-P20gy" src="https://datawrapper.dwcdn.net/P20gy/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="460" data-external="1"></iframe>
     </div>
+
+    <script type="text/javascript">
+        window.addEventListener("message", function(e) {
+            if (void 0 !== e.data["datawrapper-height"]) {
+                var iframes = document.querySelectorAll("iframe");
+                for (var key in e.data["datawrapper-height"]) {
+                    for (var i = 0, el; el = iframes[i]; i++) {
+                        if (el.contentWindow === e.source) {
+                            el.style.height = e.data["datawrapper-height"][key] + "px";
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</div>
+
 </body>
 </html>
