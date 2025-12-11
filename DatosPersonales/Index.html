@@ -13,16 +13,23 @@
             text-align: center;
             margin-bottom: 40px;
         }
+
+        /* NUEVO: contenedor en grilla 2x2 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1500px;
+            margin: auto;
+        }
+
         .card {
             background: white;
             padding: 25px;
             border-radius: 12px;
-            margin-bottom: 40px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
         }
+
         .kpi-title {
             font-size: 22px;
             margin-bottom: 10px;
@@ -37,50 +44,122 @@
             border: none;
             border-radius: 12px;
         }
+
+        /* Responsive: en pantallas chicas se vuelve 1 columna */
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
 
     <h1>Dashboard de Viajes | Datos Waze 🚗</h1>
 
-    <!-- KPI 1 -->
-    <div class="card">
-        <div class="kpi-title">Velocidad promedio por viaje (km/h)</div>
-        <div class="kpi-desc">
-            Mide la velocidad promedio según la distancia recorrida y el tiempo utilizado en cada viaje.
-            Permite identificar días con tránsito más fluido o más lento.
-        </div>
-<div class="flourish-embed flourish-chart" data-src="visualisation/26618489"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/26618489/thumbnail" width="100%" alt="chart visualization" /></noscript></div>    </div>
+    <!-- NUEVO: comienzo de la grilla -->
+    <div class="grid">
 
-    <!-- KPI 2 -->
-    <div class="card">
-        <div class="kpi-title">Uso del auto por dia (min)</div>
-        <div class="kpi-desc">
-            Suma todos los minutos manejados por día. Útil para ver qué días uso mas el auto.
-        </div>
-
-        <div class='tableauPlaceholder' id='viz1764978656415' style='position: relative'><noscript><a href='#'><img alt='Tiempo arriba del auto (min) ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TP&#47;TPdatospersonales_17649782338120&#47;Hoja2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TPdatospersonales_17649782338120&#47;Hoja2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TP&#47;TPdatospersonales_17649782338120&#47;Hoja2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='es-ES' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1764978656415');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-    </div>
-
-    <!-- KPI 3 -->
-    <div class="card">
-        <div class="kpi-title">Cantidad de viajes clasificados por distancia (Km)</div>
-        <div class="kpi-desc">
-            Muestra la cantidad de viajes lasgos, medios y cortos para tener una idea del uso del auto para que tipo de distancia
+        <!-- KPI 1 -->
+        <div class="card">
+            <div class="kpi-title">Velocidad promedio por viaje (km/h)</div>
+            <div class="kpi-desc">
+                Mide la velocidad promedio según la distancia recorrida y el tiempo utilizado en cada viaje.
+                Permite identificar días con tránsito más fluido o más lento.
+            </div>
+            <div class="flourish-embed flourish-chart" data-src="visualisation/26618489">
+                <script src="https://public.flourish.studio/resources/embed.js"></script>
+                <noscript><img src="https://public.flourish.studio/visualisation/26618489/thumbnail" width="100%" alt="chart visualization" /></noscript>
+            </div>
         </div>
 
-        <div class='tableauPlaceholder' id='viz1764979695170' style='position: relative'><noscript><a href='#'><img alt='Cantidad de viajes por categoría ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TP&#47;TPdatospersonales_17649782338120&#47;Hoja2_1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TPdatospersonales_17649782338120&#47;Hoja2_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TP&#47;TPdatospersonales_17649782338120&#47;Hoja2_1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='es-ES' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1764979695170');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-    </div>
+        <!-- KPI 2 -->
+        <div class="card">
+            <div class="kpi-title">Uso del auto por dia (min)</div>
+            <div class="kpi-desc">
+                Suma todos los minutos manejados por día. Útil para ver qué días uso más el auto.
+            </div>
 
-    <!-- KPI 4 -->
-    <div class="card">
-        <div class="kpi-title">Dispersión de Viajes en Tiempo-Kilometraje</div>
-        <div class="kpi-desc">
-            Muestra una idea de que tipos de viajes son los mas comunes respecto a distancia y tiempo. ¿Uso el auto para viajes mas cortos o generalmente para viajes largos?
+            <div class='tableauPlaceholder' id='viz1764978656415' style='position: relative'>
+                <noscript><a href='#'><img alt='Tiempo arriba del auto (min)' src='https://public.tableau.com/static/images/TP/TPdatospersonales_17649782338120/Hoja2/1_rss.png' style='border: none' /></a></noscript>
+                <object class='tableauViz' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                    <param name='embed_code_version' value='3' />
+                    <param name='site_root' value='' />
+                    <param name='name' value='TPdatospersonales_17649782338120/Hoja2' />
+                    <param name='tabs' value='no' />
+                    <param name='toolbar' value='yes' />
+                </object>
+            </div>
+            <script type='text/javascript'>
+                var divElement = document.getElementById('viz1764978656415');
+                var vizElement = divElement.getElementsByTagName('object')[0];
+                vizElement.style.width='100%';
+                vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            </script>
         </div>
 
-        <iframe title="Dispersión de Viajes en Tiempo-Kilometraje" aria-label="Scatter Plot" id="datawrapper-chart-oclSV" src="https://datawrapper.dwcdn.net/oclSV/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="353" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
-    </div>
+        <!-- KPI 3 -->
+        <div class="card">
+            <div class="kpi-title">Cantidad de viajes clasificados por distancia (Km)</div>
+            <div class="kpi-desc">
+                Muestra cuántos viajes son largos, medios y cortos.
+            </div>
+
+            <div class='tableauPlaceholder' id='viz1764979695170' style='position: relative'>
+                <noscript><a href='#'><img alt='Cantidad de viajes por categoría' src='https://public.tableau.com/static/images/TP/TPdatospersonales_17649782338120/Hoja2_1/1_rss.png' style='border: none' /></a></noscript>
+                <object class='tableauViz' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                    <param name='embed_code_version' value='3' />
+                    <param name='name' value='TPdatospersonales_17649782338120/Hoja2_1' />
+                </object>
+            </div>
+
+            <script type='text/javascript'>
+                var divElement = document.getElementById('viz1764979695170');
+                var vizElement = divElement.getElementsByTagName('object')[0];
+                vizElement.style.width='100%';
+                vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            </script>
+        </div>
+
+        <!-- KPI 4 -->
+        <div class="card">
+            <div class="kpi-title">Dispersión de Viajes en Tiempo-Kilometraje</div>
+            <div class="kpi-desc">
+                Relación entre tiempo y distancia de cada viaje.
+            </div>
+
+            <iframe title="Dispersión de Viajes en Tiempo-Kilometraje" aria-label="Scatter Plot"
+                    id="datawrapper-chart-oclSV"
+                    src="https://datawrapper.dwcdn.net/oclSV/1/"
+                    scrolling="no" frameborder="0"
+                    style="width: 0; min-width: 100% !important; border: none;"
+                    height="353"></iframe>
+
+            <script type="text/javascript">
+                window.addEventListener("message", function(a){
+                    if(void 0!==a.data["datawrapper-height"]){
+                        var e=document.querySelectorAll("iframe");
+                        for(var t in a.data["datawrapper-height"])
+                            for(var r,i=0;r=e[i];i++)
+                                if(r.contentWindow===a.source){
+                                    r.style.height=a.data["datawrapper-height"][t]+"px"
+                                }
+                    }
+                });
+            </script>
+        </div>
+
+    </div> <!-- fin grilla -->
 
 </body>
+</html>
+
 </html>
