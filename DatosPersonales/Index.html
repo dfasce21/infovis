@@ -73,32 +73,31 @@
             </div>
         </div>
 
-        <!-- KPI 2 -->
+                <!-- KPI 2 -->
         <div class="card">
-            <div class="kpi-title">Uso del auto por dia (min)</div>
+            <div class="kpi-title">Dispersión de Viajes en Tiempo-Kilometraje</div>
             <div class="kpi-desc">
-                Suma todos los minutos manejados por día. Útil para ver qué días uso más el auto.
+                Relación entre tiempo y distancia de cada viaje.
             </div>
 
-            <div class='tableauPlaceholder' id='viz1764978656415' style='position: relative'>
-                <noscript><a href='#'><img alt='Tiempo arriba del auto (min)' src='https://public.tableau.com/static/images/TP/TPdatospersonales_17649782338120/Hoja2/1_rss.png' style='border: none' /></a></noscript>
-                <object class='tableauViz' style='display:none;'>
-                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                    <param name='embed_code_version' value='3' />
-                    <param name='site_root' value='' />
-                    <param name='name' value='TPdatospersonales_17649782338120/Hoja2' />
-                    <param name='tabs' value='no' />
-                    <param name='toolbar' value='yes' />
-                </object>
-            </div>
-            <script type='text/javascript'>
-                var divElement = document.getElementById('viz1764978656415');
-                var vizElement = divElement.getElementsByTagName('object')[0];
-                vizElement.style.width='100%';
-                vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                var scriptElement = document.createElement('script');
-                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            <iframe title="Dispersión de Viajes en Tiempo-Kilometraje" aria-label="Scatter Plot"
+                    id="datawrapper-chart-oclSV"
+                    src="https://datawrapper.dwcdn.net/oclSV/1/"
+                    scrolling="no" frameborder="0"
+                    style="width: 0; min-width: 100% !important; border: none;"
+                    height="353"></iframe>
+
+            <script type="text/javascript">
+                window.addEventListener("message", function(a){
+                    if(void 0!==a.data["datawrapper-height"]){
+                        var e=document.querySelectorAll("iframe");
+                        for(var t in a.data["datawrapper-height"])
+                            for(var r,i=0;r=e[i];i++)
+                                if(r.contentWindow===a.source){
+                                    r.style.height=a.data["datawrapper-height"][t]+"px"
+                                }
+                    }
+                });
             </script>
         </div>
 
@@ -129,31 +128,32 @@
             </script>
         </div>
 
-        <!-- KPI 4 -->
+                <!-- KPI 4 -->
         <div class="card">
-            <div class="kpi-title">Dispersión de Viajes en Tiempo-Kilometraje</div>
+            <div class="kpi-title">Uso del auto por dia (min)</div>
             <div class="kpi-desc">
-                Relación entre tiempo y distancia de cada viaje.
+                Suma todos los minutos manejados por día. Útil para ver qué días uso más el auto.
             </div>
 
-            <iframe title="Dispersión de Viajes en Tiempo-Kilometraje" aria-label="Scatter Plot"
-                    id="datawrapper-chart-oclSV"
-                    src="https://datawrapper.dwcdn.net/oclSV/1/"
-                    scrolling="no" frameborder="0"
-                    style="width: 0; min-width: 100% !important; border: none;"
-                    height="353"></iframe>
-
-            <script type="text/javascript">
-                window.addEventListener("message", function(a){
-                    if(void 0!==a.data["datawrapper-height"]){
-                        var e=document.querySelectorAll("iframe");
-                        for(var t in a.data["datawrapper-height"])
-                            for(var r,i=0;r=e[i];i++)
-                                if(r.contentWindow===a.source){
-                                    r.style.height=a.data["datawrapper-height"][t]+"px"
-                                }
-                    }
-                });
+            <div class='tableauPlaceholder' id='viz1764978656415' style='position: relative'>
+                <noscript><a href='#'><img alt='Tiempo arriba del auto (min)' src='https://public.tableau.com/static/images/TP/TPdatospersonales_17649782338120/Hoja2/1_rss.png' style='border: none' /></a></noscript>
+                <object class='tableauViz' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                    <param name='embed_code_version' value='3' />
+                    <param name='site_root' value='' />
+                    <param name='name' value='TPdatospersonales_17649782338120/Hoja2' />
+                    <param name='tabs' value='no' />
+                    <param name='toolbar' value='yes' />
+                </object>
+            </div>
+            <script type='text/javascript'>
+                var divElement = document.getElementById('viz1764978656415');
+                var vizElement = divElement.getElementsByTagName('object')[0];
+                vizElement.style.width='100%';
+                vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
             </script>
         </div>
 
